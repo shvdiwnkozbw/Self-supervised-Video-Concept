@@ -75,16 +75,14 @@ python train.py [-h]
 --seq                           number of frames in each clip
 --sample                        number of clips extrated from each video
 --img_dim                       spatial dimension of input clip
---cluster                       number of cluster centroids in SK cluster
+--concept                       number of static and dynamic concepts
 --rate                          upper bound of frame sampling rate
 --train_batch                   training batchsize for each GPU process
 --workers                       num_workers for each GPU process
 --epoch                         total pretraining epochs
---split                         split epoch for introducing graph constraint
 --lr_decay                      epoch for learning rate dacay
 --thres                         thershold in graph constraint inference
 --csv_file                      csv file path of training data
---multiprocessing-distributed   activate distributed training multiprocessing
 
 For Kinetics-400 pretrain:
 python train.py --train_batch 64 --workers 8 --concept 100 --epoch 100 --lr_decay 70 --thres 0.05 --csv_file kinetics.csv
