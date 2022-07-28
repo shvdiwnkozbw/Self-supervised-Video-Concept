@@ -28,7 +28,7 @@ parser.add_argument('--workers', default=32, type=int)
 parser.add_argument('--channel', default=128, type=int)
 parser.add_argument('--pos', default=6, type=int)
 parser.add_argument('--neg', default=201, type=int)
-parser.add_argument('--cluster', default=200, type=int)
+parser.add_argument('--concept', default=100, type=int)
 parser.add_argument('--gpu', default='1,2,3', type=str)
 parser.add_argument('--epoch', default=200, type=int)
 parser.add_argument('--start', default=0, type=int)
@@ -136,7 +136,7 @@ def main():
     dataloader = data.DataLoader(dataset, shuffle=True, batch_size=args.train_batch,
                                  collate_fn=DataAllocate, num_workers=args.workers, drop_last=True)
     
-    model = GreatModel()
+    model = GreatModel(args.concept)
     model = nn.DataParallel(model)
     start = 0
     if args.resume:

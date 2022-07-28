@@ -122,9 +122,9 @@ class LocalfeatureIntegrationTransformer(nn.Module):
         return templates
 
 class GreatModel(nn.Module):
-    def __init__(self):
+    def __init__(self, concept=100):
         super(GreatModel, self).__init__()
-        self.concept = 100
+        self.concept = concept
         # self.backbone = generate_model(18)
         self.backbone = r2plus1d_18()
         self.fvv = nn.Sequential(nn.Linear(512, 512), nn.ReLU(), nn.Linear(512, 128))
